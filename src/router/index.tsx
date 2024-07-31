@@ -4,6 +4,7 @@ import { Navigate, Routes, Route } from 'react-router-dom';
 import { getKeyFromLocalStorage } from '../shared/utils/localStorage';
 
 import { ROUTES } from './constants.ts';
+import HomePage from '../pages';
 
 interface ProtectedRouteProperties {}
 
@@ -36,7 +37,8 @@ export const ProtectedRoute = ({
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="*" element={<Navigate to={ROUTES.HOME} />} />
+      <Route index element={<HomePage />} />
+      {/*<Route path="*" element={<Navigate to={ROUTES.HOME} />} />*/}
     </Routes>
   );
 };

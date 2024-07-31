@@ -22,8 +22,10 @@ const AuthorizedPageLayout: React.FC<IPageLayout> = ({
 }: IPageLayout): React.ReactNode => {
   return (
     <>
-      <AppBar position="static" color="inherit" elevation={0}>
-        <Toolbar />
+      <AppBar position="static" color="secondary" elevation={0}>
+        <Container maxWidth="xl">
+          <Toolbar />
+        </Container>
       </AppBar>
       <Container>{children}</Container>
     </>

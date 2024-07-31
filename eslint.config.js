@@ -29,7 +29,12 @@ export default standardTypes.config(
         ...globals.node,
       },
       parserOptions: {
-        project: ['tsconfig.json', 'tsconfig.node.json', 'tsconfig.app.json', 'prettier.config.js'],
+        project: [
+          'tsconfig.json',
+          'tsconfig.node.json',
+          'tsconfig.app.json',
+          'prettier.config.js',
+        ],
       },
     },
   },
@@ -59,8 +64,8 @@ export default standardTypes.config(
   {
     settings: {
       react: {
-        version: 'detect'
-      }
-    }
-  }
+        version: 'detect',
+      },
+    },
+  },
 );

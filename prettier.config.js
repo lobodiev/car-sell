@@ -3,5 +3,5 @@ export default {
   tabWidth: 2,
   useTabs: false,
   semi: true,
-  singleQuote: true
+  singleQuote: true,
 };
