@@ -1,43 +1,33 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { ICar } from '../../shared/models/ICar.ts';
 
-// export const CarService = createApi({
-//   reducerPath: 'CarService',
-//   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5173' }),
-//   tagTypes: ['Car'],
-//   endpoints: (build) => ({
-//     fetchAllCars: build.query<ICar[], number>({
-//       query: (limit: number = 10) => ({
-//         url: `/cars`,
-//         params: {
-//           _limit: limit,
-//         },
-//       }),
-//       providesTags: (result) => ['Car'],
-//     }),
-//     fetchCar: build.query<ICar, ICar>({
-//       query: (car) => ({
-//         url: `/cars/${car.id}`,
-//       }),
-//       providesTags: (result) => ['Car'],
-//     }),
-//   }),
-// });
+type CarParams = {
+  limit: number;
+  offset: number;
+  page: number;
+};
 
 export const CarService = createApi({
   reducerPath: 'CarService',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5173' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'http://localhost:8080',
+  }),
   tagTypes: ['Car'],
-  endpoints: (build) => ({
-    fetchAllCars: build.query<ICar[], number>({
-      query: (limit: number = 10) => ({
+  endpoints: (builder) => ({
+    fetchAllCars: builder.query<ICar[], CarParams>({
+      query: () => ({
         url: `/cars`,
-        params: {
-          _limit: limit,
-        },
+      }),
+      providesTags: () => ['Car'],
+    }),
+    fetchCarById: builder.query<ICar[], ICar>({
+      query: (id) => ({
+        url: `/cars/${id}`,
       }),
       providesTags: () => ['Car'],
     }),
   }),
 });
+
+export const { useFetchAllCarsQuery, useFetchCarByIdQuery } = CarService;

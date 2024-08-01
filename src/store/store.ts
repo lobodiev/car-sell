@@ -10,7 +10,7 @@ export const configStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(CarService.middleware),
+      getDefaultMiddleware().concat([CarService.middleware]),
   });
 };
 
