@@ -1,12 +1,12 @@
 import React from 'react';
 
 import UnauthorizedPageLayout from '../components/layouts/UnauthorizedPageLayout.tsx';
-import { useFetchAllCarsQuery } from '../api/services/CarService.ts';
+// import { useFetchAllCarsQuery } from '../api/services/CarService.ts';
 
 const HomePage: React.FC = () => {
-  const { data, error, isLoading } = useFetchAllCarsQuery();
+  // const { data, error, isLoading } = useFetchAllCarsQuery();
 
-  console.log(data, error, isLoading);
+  // console.log(data, error, isLoading);
 
   return (
     <>
@@ -30,9 +30,9 @@ const HomePage: React.FC = () => {
         {/*  </Typography>*/}
         {/*</Box>*/}
 
-        {data?.map((car) => {
-          return <div key={car.id}>{car.brand}</div>;
-        })}
+        {/*{data?.map((car) => {*/}
+        {/*  return <div key={car.id}>{car.brand}</div>;*/}
+        {/*})}*/}
       </UnauthorizedPageLayout>
     </>
   );

@@ -1,4 +1,5 @@
 {
+  "extends": "@packages/compiler/tsconfig.base.json",
   "files": [],
   "references": [
     {

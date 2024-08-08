@@ -7,7 +7,7 @@ import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 import prettierPlugin from 'eslint-plugin-prettier';
 
-export default standardTypes.config(
+export default [
   standard.configs.recommended,
   ...standardTypes.configs.recommended,
   {
@@ -28,44 +28,16 @@ export default standardTypes.config(
         ...globals.browser,
         ...globals.node,
       },
-      parserOptions: {
-        project: [
-          'tsconfig.json',
-          'tsconfig.node.json',
-          'tsconfig.app.json',
-          'prettier.config.js',
-        ],
-      },
     },
   },
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     rules: {
       ...prettierPlugin.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
       'prefer-const': 'error',
-      'react/jsx-curly-brace-presence': [
-        'warn',
-        { props: 'never', children: 'never' },
-      ],
-      'react/function-component-definition': [
-        'warn',
-        { namedComponents: 'arrow-function' },
-      ],
-      'react/self-closing-comp': ['error', { component: true, html: true }],
       'max-lines': ['warn', { max: 124 }],
       'max-params': ['error', 3],
     },
   },
-  {
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
-  },
-);
+];
